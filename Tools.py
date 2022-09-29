@@ -12,7 +12,7 @@ print("")
 if option == 0:
     while fin1 == 1:
 
-        chiffre1 = int(input("Choisi ton premier nombre "))
+        chiffre1 = int(input("Choisis ton premier nombre "))
 
         print("")
 
@@ -27,25 +27,28 @@ if option == 0:
 
         print("")
 
-        chiffre2 = int(input("Choisi ton deuxième nombre "))
+        chiffre2 = int(input("Choisis ton deuxième nombre "))
 
         print("")
 
-        multiplication = chiffre1*chiffre2
-        division = chiffre1/chiffre2
-        addition = chiffre1+chiffre2
-        soustration = chiffre1-chiffre2
 
         if symbole == 0:
+            multiplication = chiffre1 * chiffre2
             print("Le résultat est ", multiplication)
 
         elif symbole == 1:
-            print("Le résultat est ", division)
+            if chiffre2 == 0:
+                print("Division par zéro impossible !")
+            else:
+                division = chiffre1 / chiffre2
+                print("Le résultat est ", division)
 
         elif symbole == 2:
+            addition = chiffre1 + chiffre2
             print("Le résultat est ", addition)
 
         elif symbole == 3:
+            soustration = chiffre1 - chiffre2
             print("Le résultat est ", soustration)
 
         print("")
