@@ -7,10 +7,14 @@ while Menu == 1:
     print("\n0 -- Calculatrice")
     print("1 -- Générateur de mot de passe")
     print("2 -- Jeux")
+    print("3 -- Quitter")
+
     option = int(input(""))
 
-    if (option > 2 or option < 0):
+    if (option > 3 or option < 0):
         print("\nOpération impossible, choisissé un bon chiffre.\n")
+    elif option == 3:
+        Menu = 0
     else:
         fin_calculatrice = 1
         fin_password = 1
