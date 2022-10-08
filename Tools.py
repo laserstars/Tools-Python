@@ -263,11 +263,11 @@ while Menu == 1:
                             binaire_len = len(binaire)
 
                             binaire_presque_fini = []
-                            choix_nombre_trans_DB = -1
+                            range1_nombre_trans_DB = -1
 
                             for i in range(binaire_len):
-                                binaire_presque_fini.append(binaire[choix_nombre_trans_DB])
-                                choix_nombre_trans_DB = choix_nombre_trans_DB - 1
+                                binaire_presque_fini.append(binaire[range1_nombre_trans_DB])
+                                range1_nombre_trans_DB = range1_nombre_trans_DB - 1
 
                             chiffrebinaire = 1
                             binaire_presque_fini = str(binaire_presque_fini)
@@ -300,72 +300,24 @@ while Menu == 1:
                         fin_transcodage_DH = 1
 
                         while fin_transcodage_DH == 1:
-                            nombre_debut_trans_DH = int(input("\nDonne moi un chiffre à transcoder en Hexadécimal.\n"))
-                            nombre_trans_DH = nombre_debut_trans_DH
+                            transcodage_hexa_table = {0: '0', 1: '1', 2: '2', 3: '3', 4: '4',
+                                                      5: '5', 6: '6', 7: '7',
+                                                      8: '8', 9: '9', 10: 'A', 11: 'B', 12: 'C',
+                                                      13: 'D', 14: 'E', 15: 'F'}
 
-                            hexadecimal = []
+                            choix_nombre_debut_trans_DH = int(input("Donne moi un chiffre à transcoder en Binaire.\n"))
+                            nombre_debut_trans_DH = choix_nombre_debut_trans_DH
 
-                            while nombre_trans_DH != 0:
-
-                                nombre_reste_trans_DH = nombre_trans_DH % 16
-                                nombre_trans_DH = nombre_trans_DH // 16
-
-                                if nombre_reste_trans_DH == 0:
-                                    hexadecimal.append("0")
-                                elif nombre_reste_trans_DH == 1:
-                                    hexadecimal.append("1")
-                                elif nombre_reste_trans_DH == 2:
-                                    hexadecimal.append("2")
-                                elif nombre_reste_trans_DH == 3:
-                                    hexadecimal.append("3")
-                                elif nombre_reste_trans_DH == 4:
-                                    hexadecimal.append("4")
-                                elif nombre_reste_trans_DH == 5:
-                                    hexadecimal.append("5")
-                                elif nombre_reste_trans_DH == 6:
-                                    hexadecimal.append("6")
-                                elif nombre_reste_trans_DH == 7:
-                                    hexadecimal.append("7")
-                                elif nombre_reste_trans_DH == 8:
-                                    hexadecimal.append("8")
-                                elif nombre_reste_trans_DH == 9:
-                                    hexadecimal.append("9")
-                                elif nombre_reste_trans_DH == 10:
-                                    hexadecimal.append("A")
-                                elif nombre_reste_trans_DH == 11:
-                                    hexadecimal.append("B")
-                                elif nombre_reste_trans_DH == 12:
-                                    hexadecimal.append("C")
-                                elif nombre_reste_trans_DH == 13:
-                                    hexadecimal.append("D")
-                                elif nombre_reste_trans_DH == 14:
-                                    hexadecimal.append("E")
-                                elif nombre_reste_trans_DH == 15:
-                                    hexadecimal.append("F")
-
-                            hexadecimal_len = len(hexadecimal)
-
-                            hexadecimal_presque_fini = []
-                            a = -1
-
-                            for i in range(hexadecimal_len):
-                                hexadecimal_presque_fini.append(hexadecimal[a])
-                                a = a - 1
-
-                            chiffre_hexadecimal = 2
-                            hexadecimal_presque_fini = str(hexadecimal_presque_fini)
-                            hexadecimal_fini = ""
-                            #print(hexadecimal_presque_fini)
-
-                            for i in range(hexadecimal_len):
-                                hexadecimal_fini = hexadecimal_fini + hexadecimal_presque_fini[chiffre_hexadecimal]
-                                chiffre_hexadecimal = chiffre_hexadecimal + 5
-
-                            print("\nLe nombre", nombre_debut_trans_DH, "s'écrit", hexadecimal_fini, "en hexadecimal.")
+                            hexadecimal_fini = ''
+                            while nombre_debut_trans_DH != 0:
+                                nombre_reste_trans_DH = nombre_debut_trans_DH % 16
+                                hexadecimal_fini = transcodage_hexa_table[nombre_reste_trans_DH] + hexadecimal_fini
+                                nombre_debut_trans_DH = nombre_debut_trans_DH // 16
+                            print("\nLe nombre", choix_nombre_debut_trans_DH, "s'écrit", hexadecimal_fini, "en hexadecimal.")
 
                             menu_transcodage_DH = 1
-                            erreur_menu_transcodage_DH = int(
-                                input("\n0 -- Menu Transcodage \n1 -- Refaire ce transcodage\n"))
+                            erreur_menu_transcodage_DH = int(input("\n0 -- Menu Transcodage \n1 -- Refaire ce transcodage\n"))
+
                             while menu_transcodage_DH == 1:
 
                                 if erreur_menu_transcodage_DH == 0:
@@ -379,5 +331,4 @@ while Menu == 1:
                                 elif erreur_menu_transcodage_DH != 0 and erreur_menu_transcodage_DH != 1:
                                     menu_transcodage_DH = 1
                                     print("\nOption impossible\n")
-                                    erreur_menu_transcodage_DH = int(
-                                        input("\n0 -- Menu Transcodage \n1 -- Refaire ce transcodage\n"))
+                                    erreur_menu_transcodage_DH = int(input("\n0 -- Menu Transcodage \n1 -- Refaire ce transcodage\n"))
