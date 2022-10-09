@@ -43,17 +43,22 @@ while Menu == 1:
             if option == 3:
                 while fin_calculatrice == 1:
 
-                    choix_chiffre1_calculatrice = input("Choisis ton premier nombre ")
 
-                    choix_chiffre1_calculatrice_digit = choix_chiffre1_calculatrice.isdigit()
 
-                    while choix_chiffre1_calculatrice_digit == False:
-                        print("\nOpération impossible\n")
-                        choix_chiffre1_calculatrice = input("\nChoisis ton premier nombre.\n")
-                        choix_chiffre1_calculatrice_digit = choix_chiffre1_calculatrice.isdigit()
+                    continuer = True
 
-                    if choix_chiffre1_calculatrice_digit == True:
-                        choix_chiffre1_calculatrice = int(choix_chiffre1_calculatrice)
+                    while continuer == True:
+                        choix_chiffre1_calculatrice = input("Choisis ton premier nombre ")
+                        try:
+                            choix_chiffre1_calculatrice = int(choix_chiffre1_calculatrice)
+                            continuer = False
+
+                        except:
+                            print("Ceci n'est pas un chiffre/nombre.")
+                            continue
+
+
+
 
                         print("")
 
@@ -91,17 +96,19 @@ while Menu == 1:
 
                             print("")
 
-                            choix_chiffre2_calculatrice = input("Choisis ton deuxième nombre ")
 
-                            choix_chiffre2_calculatrice_digit = choix_chiffre2_calculatrice.isdigit()
 
-                            while choix_chiffre2_calculatrice_digit == False:
-                                print("\nOpération impossible\n")
-                                choix_chiffre2_calculatrice = input("Choisis ton deuxième nombre.\n")
-                                choix_chiffre2_calculatrice_digit = choix_chiffre2_calculatrice.isdigit()
+                            continuer = True
 
-                            if choix_chiffre2_calculatrice_digit == True:
-                                choix_chiffre2_calculatrice = int(choix_chiffre2_calculatrice)
+                            while continuer == True:
+                                choix_chiffre2_calculatrice = input("Choisis ton deuxième nombre ")
+                                try:
+                                    choix_chiffre2_calculatrice = int(choix_chiffre2_calculatrice)
+                                    continuer = False
+
+                                except:
+                                    print("Ceci n'est pas un chiffre/nombre.")
+                                    continue
 
                             print("")
 
@@ -162,10 +169,6 @@ while Menu == 1:
                                 fin_calculatrice = 1
 
                             print("")
-
-
-
-
 
             elif option == 1:
                 while fin_password == 1:
@@ -368,6 +371,7 @@ while Menu == 1:
                                 if nombre_perdu_option_digit == True:
                                     nombre_perdu_option = int(nombre_perdu_option)
 
+
                                 while nombre_perdu_option_digit == False or nombre_perdu_option < 1:
 
                                     print("\nOpération impossible\n")
@@ -385,18 +389,22 @@ while Menu == 1:
                                 fin_partie_nombre_p = 1
 
                                 nombre_essai_nombre_p = 1
-                                nombre_joueur_nombre_p = input("\nA ton avis c'est quelle nombre ?\n")
+                                nombre_joueur_nombre_p = input("\nA ton avis c'est quelle nombre ? Taper Fin pour arreter le jeu.\n")
 
                                 nombre_joueur_nombre_p_digit = nombre_joueur_nombre_p.isdigit()
 
                                 if nombre_joueur_nombre_p_digit == True:
                                     nombre_joueur_nombre_p = int(nombre_joueur_nombre_p)
 
-                                while nombre_joueur_nombre_p_digit == False or nombre_joueur_nombre_p < 0:
+                                #elif nombre_joueur_nombre_p == 'Fin' or nombre_joueur_nombre_p == 'fin' or nombre_joueur_nombre_p == 'FIN' or nombre_joueur_nombre_p == 'F' or nombre_joueur_nombre_p == 'f':
+                                    #fin_partie_nombre_p = 0
+                                #else:
+                                while (nombre_joueur_nombre_p_digit == False or nombre_joueur_nombre_p < 0) and (
+                                        nombre_joueur_nombre_p != 'Fin' and nombre_joueur_nombre_p != 'fin' and nombre_joueur_nombre_p != 'FIN' and nombre_joueur_nombre_p != 'F' and nombre_joueur_nombre_p != 'f'):
 
                                     print("\nOpération impossible\n")
 
-                                    nombre_joueur_nombre_p = input("\nA ton avis c'est quelle nombre ?\n")
+                                    nombre_joueur_nombre_p = input("\nA ton avis c'est quelle nombre ? Taper Fin pour arreter le jeu.\n")
                                     nombre_joueur_nombre_p_digit = nombre_joueur_nombre_p.isdigit()
 
                                     if nombre_joueur_nombre_p_digit == True:
@@ -404,6 +412,13 @@ while Menu == 1:
 
                                 if nombre_joueur_nombre_p_digit == True:
                                     nombre_joueur_nombre_p = int(nombre_joueur_nombre_p)
+                                elif nombre_joueur_nombre_p == 'Fin' or nombre_joueur_nombre_p == 'fin' or nombre_joueur_nombre_p == 'FIN' or nombre_joueur_nombre_p == 'F' or nombre_joueur_nombre_p == 'f':
+                                    fin_partie_nombre_p = 0
+
+
+
+
+
 
                                 while fin_partie_nombre_p == 1:
 
@@ -465,9 +480,9 @@ while Menu == 1:
 
 
                                 if nombre_joueur_nombre_p == nombre_perdu:
-                                    print("\nBravo, tu as trouvé le nombre en ", nombre_essai_nombre_p, "essais.\n")
+                                    print("\nBravo, tu as trouvé le nombre en ", nombre_essai_nombre_p, "essais.")
 
-                                print("0 -- Retour Menu Jeux")
+                                print("\n0 -- Retour Menu Jeux")
                                 print("1 -- Rejouer")
 
                                 menu_fin_jeu_nombre_perdu = input("")
