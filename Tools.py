@@ -623,43 +623,13 @@ while Menu == 1:
                                 if erreur_menu_transcodage_DB_digit == True:
                                     erreur_menu_transcodage_DB = int(erreur_menu_transcodage_DB)
 
+                                if erreur_menu_transcodage_DB == 0:
+                                    menu_transcodage_DB = 0
+                                    fin_transcodage_DB = 0
+                                    print("")
 
-                                while menu_transcodage_DB == 1:
-
-                                    if erreur_menu_transcodage_DB == 0:
-                                        menu_transcodage_DB = 0
-                                        fin_transcodage_DB = 0
-                                        print("")
-
-                                    elif erreur_menu_transcodage_DB == 1:
-                                        menu_transcodage_DB = 0
-
-                                    elif erreur_menu_transcodage_DB != 0 and erreur_menu_transcodage_DB != 1:
-                                        menu_transcodage_DB = 1
-                                        print("\nOption impossible\n")
-                                        erreur_menu_transcodage_DB = input("\n0 -- Menu Transcodage \n1 -- Refaire ce transcodage\n")
-
-                                        erreur_menu_transcodage_DB_digit = erreur_menu_transcodage_DB.isdigit()
-
-                                        if erreur_menu_transcodage_DB_digit == True:
-                                            erreur_menu_transcodage_DB = int(erreur_menu_transcodage_DB)
-
-                                        while erreur_menu_transcodage_DB_digit == False or erreur_menu_transcodage_DB < 0 or erreur_menu_transcodage_DB > 1:
-
-                                            print("\nOpération impossible\n")
-
-                                            print("0 -- Menu Transcodage")
-                                            print("1 -- Refaire ce transcodage\n")
-
-                                            erreur_menu_transcodage_DB = input("Que faire ?\n")
-                                            erreur_menu_transcodage_DB_digit = erreur_menu_transcodage_DB.isdigit()
-
-                                            if erreur_menu_transcodage_DB_digit == True:
-                                                erreur_menu_transcodage_DB = int(erreur_menu_transcodage_DB)
-
-                                        if erreur_menu_transcodage_DB_digit == True:
-                                            erreur_menu_transcodage_DB = int(erreur_menu_transcodage_DB)
-
+                                elif erreur_menu_transcodage_DB == 1:
+                                    menu_transcodage_DB = 0
 
                         elif option_transcodage == 1:
                             fin_transcodage_DH = 1
